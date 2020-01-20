@@ -1,0 +1,64 @@
+config.tx_extbase.persistence.classes {
+    KALA\Celements\Domain\Model\Content {
+        mapping {
+            tableName = tt_content
+        }
+    }
+}
+
+lib {
+    contentElement {
+        templateRootPaths {
+            1514 = EXT:celements/Resources/Private/Templates/
+        }
+    }
+
+    getImage = FILES
+    getImage {
+        references {
+            table.field = table
+            uid.field = uid
+            fieldName.field = fieldName
+        }
+
+        renderObj = TEXT
+        renderObj {
+            data = file:current:uid
+        }
+    }
+
+    getImages = FILES
+    getImages {
+        references {
+            table.field = table
+            uid.field = uid
+            fieldName.field = fieldName
+        }
+
+        renderObj = TEXT
+        renderObj {
+            data = file:current:uid
+            wrap = |,
+        }
+
+        stdWrap.substring = 0,-1
+    }
+
+    getMedia = FLUIDTEMPLATE
+    getMedia {
+        file = EXT:celements/Resources/Private/Partials/Media.html
+        dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        dataProcessing.10 {
+            references {
+                table = tt_content
+                fieldName = media
+                uid.field = uid
+            }
+            as = images
+        }
+    }
+}
+
+plugin.tx_celements {
+
+}

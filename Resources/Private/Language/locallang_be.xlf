@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+   <file source-language="en" datatype="plaintext" original="messages" date="2019-12-09T16:00:00Z" product-name="celements">
+      <header/>
+      <body>
+            <trans-unit id="tt_content.video.tabName" xml:space="preserve">
+                <source>Video</source>
+            </trans-unit>
+            <trans-unit id="tt_content.video.ce.title" xml:space="preserve">
+                <source>Multipurpose Video</source>
+            </trans-unit>
+            <trans-unit id="tt_content.video.ce.description" xml:space="preserve">
+                <source>Video content element</source>
+            </trans-unit>
+            <trans-unit id="tt_content.video.layout.normal" xml:space="preserve">
+                <source>Standard</source>
+            </trans-unit>
+            <trans-unit id="tt_content.video.layout.fluid" xml:space="preserve">
+                <source>Fluid</source>
+            </trans-unit>
+
+          <trans-unit id="tt_content.tabs.system" xml:space="preserve">
+             <source>System Settings</source>
+          </trans-unit>
+      </body>
+   </file>
+</xliff>

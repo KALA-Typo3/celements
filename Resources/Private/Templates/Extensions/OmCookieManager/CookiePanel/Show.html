@@ -1,0 +1,36 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	<f:section name="content">
+		<div class="om-cookie-panel" data-omcookie-panel="1" id="cookieBannerWH">
+			<h3>{cookiePanel.name}</h3>
+			<div class="cookie-panel__description">
+				<f:format.html>{cookiePanel.description}</f:format.html>
+			</div>
+			<div class="cookie-panel__control">
+				<button data-omcookie-panel-save="all" class="cookie-panel__button cookie-panel__button--color--green"><f:translate key="tx_omcookiemanager.fe.cookie_accept"/></button>
+				<button data-omcookie-panel-save="save" class="cookie-panel__button save-button"><f:translate key="tx_omcookiemanager.fe.cookie_save"/></button>
+			</div>
+			<div class="cookie-panel__selection description-hidden">
+				<form>
+					<f:for as="cookiegroup" each="{cookieGroups}">
+						<div class="cookie-panel__checkbox-wrap">
+							<input class="cookie-panel__checkbox {f:if(condition:cookiegroup.essential,then:'cookie-panel__checkbox--state-inactiv',else:'')}" autocomplete="off" data-omcookie-panel-grp="1" id="group-{cookiegroup.uid}" type="checkbox" {f:if(condition:cookiegroup.essential,then:'checked=1 data-omcookie-panel-essential="1" disabled="disabled"',else:'')} value="group-{cookiegroup.uid}" />
+							<label for="group-{cookiegroup.uid}"><span class="switch{f:if(condition:cookiegroup.essential,then:' inactive active')}"><span class="switcher"></span></span><span class="btn-label">{cookiegroup.name}</span></label>
+							<div class="description">{cookiegroup.description -> f:format.raw()}</div>
+						</div>
+					</f:for>
+				</form>
+			</div>
+			<div class="cookie-panel__control mobile">
+				<button data-omcookie-panel-save="save" class="cookie-panel__button"><f:translate key="tx_omcookiemanager.fe.cookie_save"/></button>
+			</div>
+			<div class="cookieBanner-links">
+				<div class="cookie-panel__link"><a href="#" id="cookie-show-more">
+					<f:translate key="tx_omcookiemanager.fe.show_more"/>
+				</a></div>
+				<f:cObject typoscriptObjectPath="lib.cookieBannerNav" />
+			</div>
+		</div>
+	</f:section>
+</html>
